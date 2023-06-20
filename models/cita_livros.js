@@ -16,11 +16,21 @@ Cita_livros({
             model:livros,
             key:'LivroId'
         }
+    },
+    UsuarioId:{
+        type:DataTypes.INTEGER,
+        allowNull: false,
+        references:{
+            model:usuario,
+            key:'UsuarioId'
+        }
     }
 },{
     sequelize,
     modelname:'cita_livros'
 })
+usuario.hasMany(Cita_livros)
+Cita_livros.hasOne(usuario)
 livros.belongsToMany(Cita_livros)
 Cita_livros.hasMany(livros)
 sequelize.sync()

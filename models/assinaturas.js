@@ -5,7 +5,7 @@ class Assinaturas extends Model{}
 Assinaturas.init({
     data_venc:{
         type: DataTypes.STRING(50),
-        allownull:true
+        allownull:false
     },
     data_exped:{
         type: DataTypes.STRING(50),
