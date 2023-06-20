@@ -44,6 +44,8 @@ Livros.init({
     sequelize,
     modelName:'livros'
 })
+usuario.hasMany(Livros)
+Livros.belongsTo(usuario)
 Livros.hasOne(editora)
 editora.hasMany(Livros)
 sequelize.sync()
