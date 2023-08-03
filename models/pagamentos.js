@@ -16,6 +16,6 @@ Pagamentos.init({
     modelName:'pagamento'
 })
 usuario.hasMany(Pagamentos)
-Pagamentos.belongsTo(usuario, {foreignKey:{allownull:false}})
+Pagamentos.belongsTo(usuario, {foreignKey:{allowNull:false}})
 sequelize.sync()
 module.exports = Pagamentos

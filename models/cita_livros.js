@@ -12,9 +12,9 @@ Cita_livros.init({
     sequelize,
     modelname:'cita_livros'
 })
-Cita_livros.belongsTo(usuario, {foreignKey:{allownull:false}});    // Cita_livros pertence a um Usuario
+Cita_livros.belongsTo(usuario, {foreignKey:{allowNull:false}});    // Cita_livros pertence a um Usuario
 usuario.hasMany(Cita_livros);   // Um Usuario pode ter muitas Cita_livros
-Cita_livros.belongsTo(livros, {foreignKey:{allownull:false}}); // Cita_livros pertence a um Livro
+Cita_livros.belongsTo(livros, {foreignKey:{allowNull:false}}); // Cita_livros pertence a um Livro
 livros.hasMany(Cita_livros);   // Um Livro pode ter muitas Cita_livros
 sequelize.sync()
 module.exports = Cita_livros

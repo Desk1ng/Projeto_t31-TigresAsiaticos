@@ -15,6 +15,6 @@ Assinaturas.init({
     sequelize,
     modelName:'assinaturas'
 })
-Assinaturas.hasOne(pagamento, {foreignKey:{allownull:false}})
+Assinaturas.hasOne(pagamento, {foreignKey:{allowNull:false}})
 sequelize.sync()
 module.exports = Assinaturas

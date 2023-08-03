@@ -17,9 +17,9 @@ Relacao_usuLiv.init({
     modelName:'Relacao_usuLiv'
 })
 usuario.hasMany(Relacao_usuLiv)
-Relacao_usuLiv.belongsTo(usuario, {foreignKey:{allownull:false}})
+Relacao_usuLiv.belongsTo(usuario, {foreignKey:{allowNull:false}})
 livros.hasMany(Relacao_usuLiv)
-Relacao_usuLiv.belongsTo(livros, {foreignKey:{allownull:false}})
+Relacao_usuLiv.belongsTo(livros, {foreignKey:{allowNull:false}})
 sequelize.sync()
 module.exports = Relacao_usuLiv
 

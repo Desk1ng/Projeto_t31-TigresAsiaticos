@@ -16,6 +16,6 @@ Comuna_usa_rela.init({
 usuario.hasMany(Comuna_usa_rela)
 Comuna_usa_rela.belongsTo(usuario, {allowNull:false})
 comunidade.hasMany(Comuna_usa_rela)
-Comuna_usa_rela.belongsTo(comunidade, {allownull:false})
+Comuna_usa_rela.belongsTo(comunidade, {allowNull:false})
 sequelize.sync()
 module.exports=Comuna_usa_rela;
