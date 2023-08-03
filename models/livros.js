@@ -23,30 +23,14 @@ Livros.init({
     quant_pags:{
         type:DataTypes.INTEGER,
         allowNull:false
-    },
-    EditorasId:{
-        type:DataTypes.INTEGER,
-        allowNull:false,
-        references:{
-            model:editora,
-            key:'EditorasId'
-        }
-    },
-    UsuarioId:{
-        type:DataTypes.INTEGER,
-        allowNull:false,
-        references:{
-            model:usuario,
-            key: 'UsuarioId'
-        }
     }
 },{
     sequelize,
     modelName:'livros'
 })
 usuario.hasMany(Livros)
-Livros.belongsTo(usuario)
-Livros.hasOne(editora)
+Livros.belongsTo(usuario, {foreignKey:{allownull:false}})
+Livros.hasOne(editora, {foreignKey:{allownull:false}})
 editora.hasMany(Livros)
 sequelize.sync()
 module.exports = Livros

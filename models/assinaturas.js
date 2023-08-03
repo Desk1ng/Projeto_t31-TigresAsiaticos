@@ -10,20 +10,11 @@ Assinaturas.init({
     data_exped:{
         type: DataTypes.STRING(50),
         allownull:false
-    },
-    PagamentoId:{
-        type: DataTypes.INTEGER,
-        allownull:false,
-        references:{
-            model:pagamento,
-            key:'PagamentosId'
-        }
-        
     }
 },{
     sequelize,
     modelName:'assinaturas'
 })
-Assinaturas.hasOne(pagamento)
+Assinaturas.hasOne(pagamento, {foreignKey:{allownull:false}})
 sequelize.sync()
 module.exports = Assinaturas

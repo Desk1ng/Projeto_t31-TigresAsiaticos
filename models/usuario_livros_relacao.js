@@ -4,22 +4,6 @@ const usuario = new require ('./usuarios')
 const livros = new require ('./livros')
 class Relacao_usuLiv extends Model{}
 Relacao_usuLiv.init({
-        UsuarioId:{
-            type:DataTypes.INTEGER,
-            allowNull:false,
-            references:{
-                model:usuario,
-                key:'UsuarioId'
-            }
-        },
-        LivrosId:{
-            type:DataTypes.INTEGER,
-            allowNull:false,
-            references:{
-                model:livros,
-                key:'LivroId'
-        }
-    },
     avaliacao:{
         type:DataTypes.STRING(255),
         allowNull:false
@@ -33,9 +17,9 @@ Relacao_usuLiv.init({
     modelName:'Relacao_usuLiv'
 })
 usuario.hasMany(Relacao_usuLiv)
-Relacao_usuLiv.belongsTo(usuario)
+Relacao_usuLiv.belongsTo(usuario, {foreignKey:{allownull:false}})
 livros.hasMany(Relacao_usuLiv)
-Relacao_usuLiv.belongsTo(livros)
+Relacao_usuLiv.belongsTo(livros, {foreignKey:{allownull:false}})
 sequelize.sync()
 module.exports = Relacao_usuLiv
 

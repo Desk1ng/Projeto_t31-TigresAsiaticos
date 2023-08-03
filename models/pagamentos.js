@@ -10,20 +10,12 @@ Pagamentos.init({
     data_pag:{
         type: DataTypes.STRING(50),
         allowNull:false
-    },
-    UsuarioId:{
-        type: DataTypes.INTEGER,
-        allowNull:false,
-        references:{
-            model:usuario,
-            key: 'UsuarioId'
-        }
     }
 },{
     sequelize,
     modelName:'pagamento'
 })
 usuario.hasMany(Pagamentos)
-Pagamentos.belongsTo(usuario)
+Pagamentos.belongsTo(usuario, {foreignKey:{allownull:false}})
 sequelize.sync()
 module.exports = Pagamentos

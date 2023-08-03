@@ -5,29 +5,14 @@ const editora = new require('./editoras')
 class Auth_edit_relacao extends Model{}
 Auth_edit_relacao.init({
 
-        AutoresId:{
-            type:DtaTypes.INTEGER,
-           allowNull:false,
-           references:{
-            model:author,
-            key:'AutoresId'
-           }
-        },
-        EditorasId:{
-            type:DataTypes.INTEGER,
-            allowNull:false,
-            references:{
-                model:editora,
-                key:'EditorasId'
-            }
-        }
+
 },{
     sequelize,
     modelName:"Auth_Edit_relacao"
 })
 editora.hasMany(Auth_edit_relacao)
-Auth_edit_relacao.belongsTo(editora)
+Auth_edit_relacao.belongsTo(editora, {foreignKey:{allownull:false}})
 author.hasMany(Auth_edit_relacao)
-Auth_edit_relacao.belongsTo(author)
+Auth_edit_relacao.belongsTo(author, {foreignKey:{allownull:false}})
 sequelize.sync()
 module.exports = Auth_edit_relacao

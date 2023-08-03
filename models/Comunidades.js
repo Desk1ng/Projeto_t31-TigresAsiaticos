@@ -1,5 +1,6 @@
 const {DataTypes, Model} = require ('sequelize')
 const sequelize = require("../bd");
+const Usuario = require('./usuarios');
 class Comunidades extends Model{}
 Comunidades.init({
     nome:{
