@@ -1,14 +1,16 @@
-const { json } = require("sequelize")
-
+const auth = require("../auth")
 const rota = "livros"
 const model = new require('../../models/livros')
 module.exports = (app) =>{
-    app.get(`/consultar/${rota}`, async(res)=>{
-        try{
-            let  dados =  await model.findAll()
-            return res.json(dados)
-        }catch(erro){
-            return res.json(erro).status(400)
+    app.get(`/consultar/${rota}`, auth.validarToken , async(res)=>{
+        try {
+            //Alterar
+            let id = req.usuarioAtual.id
+            let dados = await model.findByPk(id)
+            let {nome,idioma,gen_lit} = dados
+            res.json(dados).status(200)
+        } catch (error) {
+            res.json(error).status(400)
         }
     })
     app.post(`/cadastrar/${rota}`,async(req,res)=>{
@@ -17,6 +19,6 @@ module.exports = (app) =>{
             let respBd = await model.create(dados)
             res.json(respBd).status(201)
         }catch{
-            res.json(respBd).status(401)
+            res.json(respBd).status(400)
     }})
 }
