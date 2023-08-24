@@ -1,4 +1,4 @@
-const model = new require ('../../models/usuario')
+const model = new require ('../../models/usuarios')
 const auth = require ('../auth')
 const validacao = require ('../validacao')
 

@@ -1,4 +1,4 @@
-const model = new require('../../models/usuario')
+const model = new require('../../models/usuarios')
 const validacao = require('../validacao')
 const auth = require ('../auth')
 const rota = 'usuarios'
