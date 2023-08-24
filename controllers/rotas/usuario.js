@@ -7,6 +7,7 @@ module.exports = (app)=>{
         try{
         let dados = req.body
         let dadosLogin = await validacao.validarCadastro(dados,model)
+        
         if (dadosLogin.validacao){
             dados.senha = await auth.criptografarsenha(dados.senha)
             let respBd = await model.create(dados)
@@ -33,6 +34,7 @@ module.exports = (app)=>{
     })
     app.delete(`/excluir/${rota}/:id`, async (req, res) => {
         let id = req.params.id
+        
         let respBd = await model.destroy({where:{id:id}})
         res.json(respBd)
     })
