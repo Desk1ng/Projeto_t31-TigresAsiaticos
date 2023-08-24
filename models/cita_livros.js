@@ -10,7 +10,7 @@ Cita_livros.init({
     }
 },{
     sequelize,
-    modelname:'cita_livros'
+    modelname:'Cita_livros'
 })
 Cita_livros.belongsTo(usuario, {foreignKey:{allowNull:false}});    // Cita_livros pertence a um Usuario
 usuario.hasMany(Cita_livros);   // Um Usuario pode ter muitas Cita_livros

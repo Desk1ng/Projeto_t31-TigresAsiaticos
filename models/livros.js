@@ -28,9 +28,9 @@ Livros.init({
     sequelize,
     modelName:'livros'
 })
-usuario.hasMany(Livros)
 Livros.belongsTo(usuario, {foreignKey:{allowNull:false}})
+usuario.hasMany(Livros)
 Livros.hasOne(editora, {foreignKey:{allowNull:false}})
-editora.hasMany(Livros)
+editora.belongsTo(Livros)
 sequelize.sync()
 module.exports = Livros

@@ -1,3 +1,4 @@
+const validacao = require("../validacao")
 const auth = require("../auth")
 const rota = "livros"
 const model = new require('../../models/livros')
@@ -13,7 +14,7 @@ module.exports = (app) =>{
             res.json(error).status(400)
         }
     })
-    app.post(`/cadastrar/${rota}`,async(req,res)=>{
+    app.post(`/cadastrar/${rota}`, auth.validarToken ,async(req,res)=>{
         let dados = req.body
         try{
             let respBd = await model.create(dados)

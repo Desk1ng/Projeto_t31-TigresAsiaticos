@@ -1,4 +1,6 @@
 const {DataTypes, Model} = require('sequelize')
+const autores = require("./autores")
+const Auth_edit_relacao = require ("./Auth_Edit_relacao")
 const sequelize = require('../bd')
 class Editoras extends Model{}
 Editoras.init({
@@ -13,7 +15,9 @@ Editoras.init({
     }
 },{
     sequelize,
-    modelName:'editora'
+    modelName:'Editoras'
 })
+Editoras.belongsToMany(autores, { through: Auth_edit_relacao });
+autores.belongsToMany(Editoras,  { through: Auth_edit_relacao });
 sequelize.sync()
 module.exports = Editoras

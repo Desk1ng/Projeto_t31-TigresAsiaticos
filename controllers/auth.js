@@ -2,7 +2,7 @@ const jwt = require ('jsonwebtoken')
 const bcrypt = require ('bcrypt')
 
 const jwtSecret = 'saudbaipfbabfapndasfpabpsdas'
-const model = new require ('../models/usuario')
+const model = new require ('../models/usuarios')
 module.exports ={
     criptografarsenha: async(senha)=>{
         const salt = bcrypt.genSaltSync(12)
